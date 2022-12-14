@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken")
 const jwtConfig = require("../db/config/jwt");
 
 module.exports = (req, res, next) => {
-  let token = req.headers.authorization.split(" ")[1];
+
 
   if (!req.headers.authorization) {
     return res.status(403).send({
@@ -14,6 +14,7 @@ module.exports = (req, res, next) => {
       message: "Please provide proper token",
     });
   }
+  let token = req.headers.authorization.split(" ")[1];
   
   jwt.verify(token, jwtConfig.secret, (err, decoded) => {
     if (err) {
