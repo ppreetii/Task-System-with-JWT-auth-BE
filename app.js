@@ -1,5 +1,3 @@
-const path = require("path");
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
@@ -24,19 +22,6 @@ const fileStorage = multer.diskStorage({
   }
 });
 
-//only allowing particular file uploads
-// const fileFilter = (req, file, cb) => {
-//   if (
-//     file.mimetype === "image/png" ||
-//     file.mimetype === "image/jpeg" ||
-//     file.mimetype === "image/jpg"
-//   ) {
-//     cb(null, true);
-//   } else {
-//     cb(null, false);
-//   }
-// };
-
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(
@@ -55,6 +40,7 @@ app.use(taskRoutes);
 sequelize
 .sync()
 .then(()=>{
+    console.log('Connected to DB')
     app.listen(process.env.PORT);
     console.log(`Server started at port ${process.env.PORT}`);
 })

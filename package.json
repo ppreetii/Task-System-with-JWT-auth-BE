@@ -1,12 +1,13 @@
 {
-  "name": "citrusleaf_poc",
+  "name": "Task-Management",
   "version": "1.0.0",
   "description": "Interview Task for NodeJS BE Developer",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx sequelize db:migrate && npx sequelize db:seed:all && nodemon app.js",
-    "db_migration_seeding": "npx sequelize-cli db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
+    "dev": "npx sequelize db:migrate && npx sequelize db:seed:all && nodemon app.js",
+    "start": "node app.js",
+    "db_migrate_seed": "npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "keywords": [],
   "author": "Preeti Gupta",

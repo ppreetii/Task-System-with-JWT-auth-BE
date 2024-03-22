@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 
 dotenv.config({path:__dirname+'/./../../../.env'})
 
-const { HOST, USER, PASSWORD, DATABASE, DIALECT, TEST_DB, PROD_DB } =
+const { HOST, USER, PASSWORD, DATABASE, DIALECT, TEST_DB, PROD_DB, DB_PORT} =
   process.env;
 
 module.exports = {
@@ -31,6 +31,7 @@ module.exports = {
     host: HOST,
     dialect: DIALECT,
     seederStorage: "sequelize",
-    logging:false
+    logging:false,
+    port : DB_PORT
   },
 };
